@@ -1,7 +1,7 @@
 FROM haproxy:alpine
 USER root
 
-RUN apk add --no-cache ca-certificates wget unzip tzdata
+RUN apk add --no-cache ca-certificates wget unzip tzdata supervisor
 
 RUN wget --no-check-certificate -qO /tmp/xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip -j /tmp/xray.zip xray -d /usr/local/bin/ && \
@@ -18,6 +18,7 @@ ENV LANG=C.UTF-8
 COPY config.json /etc/xray.json
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 COPY index.html /usr/local/etc/haproxy/index.html
+COPY supervisord.conf /etc/supervisord.conf
 
 RUN chmod 644 /etc/xray.json /usr/local/etc/haproxy/haproxy.cfg /usr/local/etc/haproxy/index.html && \
     chmod 755 /usr/local/bin/xray
@@ -27,4 +28,4 @@ EXPOSE 8080
 HEALTHCHECK --interval=10s --timeout=5s --start-period=20s --retries=3 \
     CMD wget -q --spider http://127.0.0.1:8080/health || exit 1
 
-CMD exec /bin/sh -c '/usr/local/bin/xray run -c /etc/xray.json & PID1=$!; trap "kill $PID1; exit 0" TERM; wait $PID1'
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
