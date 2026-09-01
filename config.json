@@ -17,7 +17,7 @@
   "inbounds": [
     {
       "port": 10001,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "trojan",
       "tag": "trojan-ws",
       "settings": {
@@ -40,7 +40,7 @@
     },
     {
       "port": 10002,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "vless",
       "tag": "vless-ws",
       "settings": {
@@ -64,7 +64,7 @@
     },
     {
       "port": 10003,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "shadowsocks",
       "tag": "shadowsocks-ws",
       "settings": {
@@ -87,7 +87,7 @@
     },
     {
       "port": 10004,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "vmess",
       "tag": "vmess-ws",
       "settings": {
@@ -110,7 +110,7 @@
     },
     {
       "port": 11001,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "trojan",
       "tag": "trojan-hu",
       "settings": {"clients": [{"password": "Cxlvin777"}]},
@@ -131,7 +131,7 @@
     },
     {
       "port": 11002,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "vless",
       "tag": "vless-hu",
       "settings": {
@@ -155,7 +155,7 @@
     },
     {
       "port": 11003,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "shadowsocks",
       "tag": "shadowsocks-hu",
       "settings": {
@@ -178,7 +178,7 @@
     },
     {
       "port": 11004,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "vmess",
       "tag": "vmess-hu",
       "settings": {
@@ -201,7 +201,7 @@
     },
     {
       "port": 10010,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "trojan",
       "tag": "trojan-xh",
       "settings": {"clients": [{"password": "Cxlvin777"}]},
@@ -222,7 +222,7 @@
     },
     {
       "port": 10009,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "vless",
       "tag": "vless-xh",
       "settings": {
@@ -244,7 +244,7 @@
     },
     {
       "port": 10012,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "shadowsocks",
       "tag": "shadowsocks-xh",
       "settings": {
@@ -267,7 +267,7 @@
     },
     {
       "port": 10011,
-      "listen": "::",
+      "listen": "127.0.0.1",
       "protocol": "vmess",
       "tag": "vmess-xh",
       "settings": {
