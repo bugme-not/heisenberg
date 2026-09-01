@@ -1,8 +1,0 @@
-config.json
-*.env
-*.log
-tmp/
-temp/
-*.zip
-.DS_Store
-Thumbs.db
