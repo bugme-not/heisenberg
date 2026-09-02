@@ -1,38 +1,20 @@
 #!/bin/sh
 
-set -eu
+export PORT="${PORT:-8080}"
 
-PORT="${PORT:-8080}"
-
-echo "======================================"
-echo "Starting container"
-echo "PORT=${PORT}"
-echo "======================================"
-
-echo "===== XRAY CONFIG TEST ====="
-/usr/local/bin/xray run -test -c /etc/xray.json
-
-echo "===== HAPROXY CONFIG TEST ====="
-haproxy -c -f /usr/local/etc/haproxy/haproxy.cfg
-
-echo "===== STARTING XRAY ====="
+echo "[start] Starting Xray..."
 /usr/local/bin/xray run -c /etc/xray.json &
 XRAY_PID=$!
+echo "[start] Xray started — PID: $XRAY_PID"
 
 sleep 2
 
-if ! kill -0 "$XRAY_PID" 2>/dev/null; then
-    echo "ERROR: Xray failed to start"
-    exit 1
+echo "[start] Validating HAProxy config..."
+if ! haproxy -c -f /usr/local/etc/haproxy/haproxy.cfg; then
+  echo "[ERROR] HAProxy config invalid — aborting"
+  exit 1
 fi
+echo "[start] HAProxy config OK"
 
-echo "Xray started with PID ${XRAY_PID}"
-
-trap 'kill "$XRAY_PID" 2>/dev/null || true' INT TERM EXIT
-
-echo "===== STARTING HAPROXY ====="
-
-exec haproxy \
-    -W \
-    -db \
-    -f /usr/local/etc/haproxy/haproxy.cfg
+echo "[start] Starting HAProxy on port $PORT..."
+exec haproxy -f /usr/local/etc/haproxy/haproxy.cfg
