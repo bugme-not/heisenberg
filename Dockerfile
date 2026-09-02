@@ -24,4 +24,6 @@ COPY index.html /usr/local/etc/haproxy/index.html
 
 EXPOSE 8080
 
-CMD /usr/local/bin/xray run -c /etc/xray.json & exec haproxy -db -f /usr/local/etc/haproxy/haproxy.cfg
+ENTRYPOINT ["/bin/sh", "-c"]
+
+CMD ["/usr/local/bin/xray run -c /etc/xray.json & exec haproxy -db -f /usr/local/etc/haproxy/haproxy.cfg"]
