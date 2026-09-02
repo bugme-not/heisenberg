@@ -26,19 +26,15 @@ frontend cloudrun_ingress
     use_backend bk_trojan_ws if { path /CxlvinTRWS }
     use_backend bk_trojan_hu if { path /CxlvinTRHU }
     use_backend bk_trojan_xh if { path /CxlvinTRXH }
-
     use_backend bk_vmess_ws if { path /CxlvinVMWS }
     use_backend bk_vmess_hu if { path /CxlvinVMHU }
     use_backend bk_vmess_xh if { path /CxlvinVMXH }
-
     use_backend bk_vless_ws if { path /CxlvinVlWS }
     use_backend bk_vless_hu if { path /CxlvinVlHU }
     use_backend bk_vless_xh if { path /CxlvinVlXH }
-
     use_backend bk_ss_ws if { path /CxlvinSSWS }
     use_backend bk_ss_hu if { path /CxlvinSSHU }
     use_backend bk_ss_xh if { path /CxlvinSSXH }
-
     default_backend bk_blackhole
 
 backend bk_trojan_ws  { server xray 127.0.0.1:10001 }
