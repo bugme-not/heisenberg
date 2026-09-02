@@ -7,17 +7,16 @@
     "queryStrategy": "UseIP",
     "disableCache": false,
     "disableFallback": false,
-    "fakedns": [
-      {
-        "ipPool": "198.18.0.0/15",
-        "poolSize": 65535
-      }
-    ]
+    "hosts": {
+      "www.cloudflare.com": "127.0.0.1",
+      "dns.alidns.com": "127.0.0.1",
+      "dns.google.com": "127.0.0.1"
+    }
   },
   "inbounds": [
     {
       "port": 10001,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "trojan",
       "tag": "trojan-ws",
       "settings": {
@@ -36,11 +35,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10002,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "vless",
       "tag": "vless-ws",
       "settings": {
@@ -60,11 +59,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10003,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "shadowsocks",
       "tag": "shadowsocks-ws",
       "settings": {
@@ -83,11 +82,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10004,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "vmess",
       "tag": "vmess-ws",
       "settings": {
@@ -106,11 +105,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 11001,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "trojan",
       "tag": "trojan-hu",
       "settings": {"clients": [{"password": "Cxlvin777"}]},
@@ -131,7 +130,7 @@
     },
     {
       "port": 11002,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "vless",
       "tag": "vless-hu",
       "settings": {
@@ -151,11 +150,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 11003,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "shadowsocks",
       "tag": "shadowsocks-hu",
       "settings": {
@@ -174,11 +173,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 11004,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "vmess",
       "tag": "vmess-hu",
       "settings": {
@@ -197,11 +196,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10010,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "trojan",
       "tag": "trojan-xh",
       "settings": {"clients": [{"password": "Cxlvin777"}]},
@@ -218,11 +217,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10009,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "vless",
       "tag": "vless-xh",
       "settings": {
@@ -240,11 +239,11 @@
           "tcpKeepAliveCount": 3
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10012,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "shadowsocks",
       "tag": "shadowsocks-xh",
       "settings": {
@@ -263,11 +262,11 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 10011,
-      "listen": "127.0.0.1",
+      "listen": "::",
       "protocol": "vmess",
       "tag": "vmess-xh",
       "settings": {
@@ -286,7 +285,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     }
   ],
   "outbounds": [
