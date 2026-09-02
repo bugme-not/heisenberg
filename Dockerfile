@@ -1,14 +1,10 @@
 FROM alpine:3.20
 
-ADD alpine-minirootfs-3.24.1-x86_64.tar.gz / # buildkit
-
 CMD ["/bin/sh"]
 
 ARG TARGETPLATFORM=linux/amd64
 
 WORKDIR /root
-
-COPY xray.sh /root/xray.sh # buildkit
 
 COPY config.json /etc/xray/config.json # buildkit
 
@@ -41,7 +37,7 @@ COPY index.html /var/lib/nginx/html/index.html # buildkit
 
 COPY entrypoint.sh /entrypoint.sh # buildkit
 
-RUN /bin/sh -c chmod +x /root/xray.sh /entrypoint.sh
+RUN /bin/sh -c chmod +x /entrypoint.sh
 
 EXPOSE 8080/tcp
 
