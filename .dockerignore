@@ -11,3 +11,5 @@ temp/
 node_modules/
 .DS_Store
 Thumbs.db
+haproxy.cfg
+
