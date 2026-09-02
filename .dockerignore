@@ -1,4 +1,5 @@
 .git
+.github
 .gitignore
 *.md
 *.log
@@ -7,6 +8,6 @@
 *.tar.gz
 tmp/
 temp/
-node_modules
+node_modules/
 .DS_Store
 Thumbs.db
