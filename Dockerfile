@@ -28,7 +28,6 @@ RUN apk add --no-cache ca-certificates bash tzdata supervisor openresty
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervisord.conf /etc/supervisord.conf
-COPY index.html /var/lib/nginx/html/index.html
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
