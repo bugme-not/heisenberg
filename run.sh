@@ -10,5 +10,8 @@ echo "Xray started PID $XRAY_PID"
 
 sleep 3
 
+echo "Validating HAProxy config..."
+haproxy -c -f /usr/local/etc/haproxy/haproxy.cfg || exit 1
+
 echo "Starting HAProxy on 0.0.0.0:8080"
 exec haproxy -f /usr/local/etc/haproxy/haproxy.cfg
