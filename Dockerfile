@@ -18,12 +18,13 @@ ENV TZ=UTC
 ENV LANG=C.UTF-8
 ENV PORT=8080
 
+
 COPY config.json /etc/xray.json
 COPY haproxy.cfg.template /usr/local/etc/haproxy/haproxy.cfg.template
 COPY index.html /usr/local/etc/haproxy/index.html
 COPY run.sh /run.sh
 
-# Fix line endings + permissions
+# Fix permissions & line endings
 RUN sed -i 's/\r$//' /run.sh && \
     chmod 755 /run.sh /usr/local/bin/xray && \
     chmod 644 /etc/xray.json /usr/local/etc/haproxy/haproxy.cfg.template /usr/local/etc/haproxy/index.html
